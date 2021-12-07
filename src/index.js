@@ -3,6 +3,10 @@ import React from "react"
 // necesitamos la variable reactDOM en scope
 import ReactDOM from "react-dom"
 // necesitamos una aplicacion de react
-import App from "./App" 
+import Header from "./components/NavBar.js" 
 // necesitamos dibujar la aplicacion en el dom
-ReactDOM.render(<App/>, document.getElementById("root"))
+ReactDOM.render(<Header/>, document.getElementById("navBar")) 
+
+
+
+
