@@ -1,6 +1,7 @@
 import "./NavBar.css"
 
 const Header = () => 
+
 <>
     <h1>Urbano Tienda</h1>
     <ul>
@@ -14,7 +15,9 @@ const Header = () =>
             <a href="#">Contactanos</a>
         </li>
         <li>
-            <a href="#">Carrito</a>
+            <a href="#">
+                <img src="/logocarrito.png"/>
+            </a>
         </li>
     </ul>
 </>
