@@ -1,29 +1,23 @@
 import "./NavBar.css"
 
-const Header = () => 
-
+const Header = ({nombre, links}) => {
+    return (
 <>
-    <h1>Urbano Tienda</h1>
-    <ul>
-        <li>
-            <a href="#">Inicio</a>
-        </li>
-        <li>
-            <a href="#">Sobre Nosotros</a>
-        </li>
-        <li>
-            <a href="#">Contactanos</a>
-        </li>
-        <li>
-            <a href="#">
-                <img src="/logocarrito.png"/>
-            </a>
-        </li>
-    </ul>
+    <nav id="navBar"> 
+        <h1>Bienvenido {nombre} a Urbano Tienda!</h1>
+        <ul>
+            <li>
+                {links.map((elemento)=> {
+                return (
+                    <a href={elemento.href}>{elemento.link}</a>
+                )
+                })}
+            </li>
+        </ul>
+    </nav>
 </>
-
-
-
+)
+}
 
 
 
