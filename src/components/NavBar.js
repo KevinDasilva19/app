@@ -1,21 +1,31 @@
 import "./NavBar.css"
+import ItemCount from "./ItemCount.js"
 
-const Header = ({nombre, links}) => {
+
+
+
+function Header ({nombre, links}) {
+
+    
+
+    
+
     return (
-<>
-    <nav id="navBar"> 
-        <h1>Bienvenido {nombre} a Urbano Tienda!</h1>
-        <ul>
-            <li>
-                {links.map((elemento)=> {
-                return (
-                    <a href={elemento.href}>{elemento.link}</a>
-                )
-                })}
-            </li>
-        </ul>
-    </nav>
-</>
+        <>
+            <nav id="navBar"> 
+                <h1>Bienvenido {nombre} a Urbano Tienda!</h1>
+                <ul>
+                    <li>
+                        {links.map((elemento)=> {
+                        return (
+                            <a href={elemento.href}>{elemento.link}</a>
+                        )
+                        })}
+                    </li>
+                </ul>
+            </nav>
+            
+        </>
 )
 }
 
