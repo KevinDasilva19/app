@@ -6,7 +6,7 @@ const List = ({data}) => {
             {
                 data.map(
                     item => (
-                        <Item key={item.id} name={item.title} price={item.price}/>
+                        <Item id={item.id} name={item.title} img= {item.img} price={item.price}/>
                     )
                 )
             }
@@ -15,3 +15,4 @@ const List = ({data}) => {
 }
 
 export default List
+
