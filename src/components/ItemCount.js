@@ -23,8 +23,8 @@ function ItemCount ({stock, initial, onAdd}) {
     
     return (
         <>
-            <p>Carrito</p>
-            <p>{contador}</p>
+            
+            <p>Productos Selecionados: {contador}</p>
             <button onClick={sumar}>+</button>
             <button onClick={onAdd}>Agregar a Carrito</button>
             <button onClick={restar}>-</button>
