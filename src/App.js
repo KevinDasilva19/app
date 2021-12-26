@@ -1,6 +1,7 @@
 import Header from "./components/NavBar.js" 
 import LogoCarrito from "./components/CartWidjet"
 import ItemListContainer from "./components/ItemListContainer" 
+import ItemDetailContainer from "./components/ItemDetailContainer"
 import "./components/Item.css"
 
 function App () {
@@ -15,6 +16,7 @@ function App () {
         <>
             <header ><Header nombre="Kevin" links={links}/></header>
             <div className="containerProduct"><ItemListContainer/></div>
+            <div> <ItemDetailContainer/> </div>
         </>
         
     )
