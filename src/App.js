@@ -3,20 +3,32 @@ import LogoCarrito from "./components/CartWidjet"
 import ItemListContainer from "./components/ItemListContainer" 
 import ItemDetailContainer from "./components/ItemDetailContainer"
 import "./components/Item.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "./components/Home"
+import Carrito from "./components/Carrito"
 
 function App () {
     const links = [
-        {href:"#", link:"Inicio"},
-        {href:"#", link:"Sobre Nosotros"},
-        {href:"#", link:"Contactanos"},
-        {href:"#", link:<LogoCarrito/>}
+        {href:"/productos", link:"Productos", id: 1},
+        {href:"/categoria/1", link:"Categoria 1", id:2},
+        {href:"/categoria/2", link:"Categoria 2", id:3},
+        {href:"/carrito", link:<LogoCarrito/>}
     ]
     
     return (
         <>
-            <header ><Header nombre="Kevin" links={links}/></header>
-            <div className="containerProduct"><ItemListContainer/></div>
-            <div> <ItemDetailContainer/> </div>
+            <BrowserRouter>
+                <header> <Header nombre="Kevin" links={links}/> </header>
+                <Routes>
+                    <Route path="/home" element={<Home/>}/>   
+                    <Route path="/productos" element={<ItemListContainer/>}/>
+                    <Route path="/categoria/:id" element={<ItemListContainer/>}/>
+                    <Route path="/carrito" element={<Carrito/>}/>
+                    <Route path="/producto/:id" element={<ItemDetailContainer/>}/>
+                </Routes>
+
+                
+            </BrowserRouter>
         </>
         
     )
