@@ -5,7 +5,9 @@ function Header ({nombre, links}) {
     return (
         <>
             <nav id="navBar"> 
-                <h1>Bienvenido {nombre} a Urbano Tienda!</h1>
+                <Link to="home">
+                    <h1>Bienvenido {nombre} a Urbano Tienda!</h1>
+                </Link>
                 <ul>
                     <li>
                         {links.map((elemento, indice)=> {

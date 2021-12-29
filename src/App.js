@@ -10,8 +10,8 @@ import Carrito from "./components/Carrito"
 function App () {
     const links = [
         {href:"/productos", link:"Productos", id: 1},
-        {href:"/categoria/1", link:"Categoria 1", id:2},
-        {href:"/categoria/2", link:"Categoria 2", id:3},
+        {href:"/categoria/1", link:"electronics", id:2},
+        {href:"/categoria/2", link:"jewelery", id:3},
         {href:"/carrito", link:<LogoCarrito/>}
     ]
     
@@ -24,7 +24,7 @@ function App () {
                     <Route path="/productos" element={<ItemListContainer/>}/>
                     <Route path="/categoria/:id" element={<ItemListContainer/>}/>
                     <Route path="/carrito" element={<Carrito/>}/>
-                    <Route path="/producto/:id" element={<ItemDetailContainer/>}/>
+                    <Route path="/productos/producto/:id"  element={<ItemDetailContainer/>}/>
                 </Routes>
 
                 

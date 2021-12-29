@@ -1,23 +1,33 @@
-import ItemCount from "./ItemCount"
+
 import ItemDetail from "./ItemDetail"
 import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
+
 
 const ItemDetailContainer = () => {
-    const getItem = () => {
-        const promesa = new Promise ((res,rej) => {
-            setTimeout(()=>{
-                res(<ItemDetail/>)
-            }, 2000)
+    const {id} = useParams()
+    let [product, setProduct] = useState({})
+    useEffect(()=> {
+    
+        const getItem = () => {
+            console.log(id)
+            fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(res=> {
+            setProduct(res)
+        })
+            
         }
-
+        getItem()
+        return (
+            
+            <ItemDetail item={product}/>
         )
-    }
-    function OnAdd() {}
-
-    return (
-        1 + 1
-    )
+    
+},[id])
 }
+
+
 
 export default ItemDetailContainer
 
