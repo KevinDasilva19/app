@@ -1,51 +1,71 @@
 
+import React from "react";  
 import ItemDetail from "./ItemDetail"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
 
 const ItemDetailContainer = () => {
-    const {id} = useParams()
     let [product, setProduct] = useState({})
-    useEffect(()=> {
+    const {id} = useParams()
+    let url = "https://fakestoreapi.com/products"
+    const getItem = async () => {
+        const pedido = await fetch(url);
+        const productos = await pedido.json();
+        return productos.filter(producto=>producto.id==id)
+    }
     
-        const getItem = () => {
-            console.log(id)
-            fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then(res=> {
-            setProduct(res)
-        })
-            
-        }
+    
+
+    useEffect(()=> {
         getItem()
-        return (
-            
-            <ItemDetail item={product}/>
+        .then((res) => {
+        setProduct(res);
+        })
+        .catch((err) => {
+            console.log(err.message);
+        })
+        
+    },[id])
+    console.log(product)
+    
+    
+    return (
+        
+        <ItemDetail item={product}/>
         )
     
-},[id])
 }
 
 
 
 export default ItemDetailContainer
 
-// useEffect(()=>{
+// const getItem = () => {
+//     console.log(id)
+//     fetch('https://fakestoreapi.com/products')
+//     .then(res=>res.json())
+//     .then(res=>{
+//         setProduct(res)
+//     })
+// }
 
-//         const promesa = new Promise((res,rej)=>{
-//             setTimeout(()=>{
-//                 res(productosIniciales)
-//             },2000)
-//         })
-        
-//         promesa
-//         .then((productos)=>{
-//             console.log("Todo bien")
-//             setLista(productos)
-//         })
-//         .catch(()=>{
-//             console.log("Todo mal")
-//         })
 
-//     },[])
+// getItem().then(res=> {
+    //     const dataSeleccionada = res.find((producto) => producto.id === Number(id))
+    //     setProduct(dataSeleccionada)
+    // })
+    // useEffect(()=>{
+        //     console.log(id)
+        //     fetch('https://fakestoreapi.com/products')
+    //     .then(res=>res.json())
+    //     .then(res=> {
+    //         setProduct(res)
+    //     })
+    // }, [id])
+    // console.log(product)
+    
+    // const getItem = () => {
+    //     fetch(url)
+    //     .then(res=>res.json())
+    // }
