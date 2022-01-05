@@ -4,31 +4,43 @@ import ItemDetail from "./ItemDetail"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
-
+//Abajo de todo esta comentado las distintas formas en las que intente traer el producto
 const ItemDetailContainer = () => {
     let [product, setProduct] = useState({})
     const {id} = useParams()
-    let url = "https://fakestoreapi.com/products"
-    const getItem = async () => {
-        const pedido = await fetch(url);
-        const productos = await pedido.json();
-        return productos.filter(producto=>producto.id==id)
-    }
+    // const getItem = async () => {
+    //     const pedido = await fetch(url);
+    //     const productos = await pedido.json();
+    //     return productos.filter(producto=>producto.id==id)
+    // }
     
     
+        
 
     useEffect(()=> {
-        getItem()
-        .then((res) => {
-        setProduct(res);
-        })
-        .catch((err) => {
-            console.log(err.message);
+        let promise
+        if (id) {
+            promise = fetch(`https://fakestoreapi.com/products/${id}`)
+        } else {
+            promise = fetch('https://fakestoreapi.com/products')
+        }
+        console.log(id)
+        promise
+        .then(res=>res.json())
+        .then(res=> {
+            setProduct(res)
         })
         
     },[id])
     console.log(product)
     
+    // getItem()
+    // .then((res) => {
+    // setProduct(res);
+    // })
+    // .catch((err) => {
+    //     console.log(err.message);
+    // })
     
     return (
         

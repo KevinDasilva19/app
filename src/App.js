@@ -2,6 +2,7 @@ import Header from "./components/NavBar.js"
 import LogoCarrito from "./components/CartWidjet"
 import ItemListContainer from "./components/ItemListContainer" 
 import ItemDetailContainer from "./components/ItemDetailContainer"
+import Footer from "./components/Footer"
 import "./components/Item.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./components/Home"
@@ -24,11 +25,9 @@ function App () {
                     <Route path="/productos" element={<ItemListContainer/>}/>
                     <Route path="/categoria/:id" element={<ItemListContainer/>}/>
                     <Route path="/carrito" element={<Carrito/>}/>
-                    <Route path="/productos/producto/"  element={<ItemDetailContainer/>}/>
-                    {/* ESTA FORMA NO ME FUNCIONA <Route path="/productos/producto/:id"  element={<ItemDetailContainer/>}/> */}
+                    <Route path="/producto/:id"  element={<ItemDetailContainer/>}/>
                 </Routes>
-
-                
+                <Footer/>
             </BrowserRouter>
         </>
         

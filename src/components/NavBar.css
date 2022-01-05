@@ -1,3 +1,7 @@
+body {
+    margin:0;
+}
+
 #navBar {
     background-color: gray;
     padding: 10px;
