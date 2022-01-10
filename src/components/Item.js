@@ -8,7 +8,7 @@ const Item = ({ name, price, img, id }) => {
 
 return (
     <>
-        <div>
+        <div key={id}>
             <h3>{name}</h3>
             <p>Precio:${price}</p>
             <img src={img} alt="imgProduct" className="imgProduct"></img>

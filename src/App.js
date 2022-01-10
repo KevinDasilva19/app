@@ -7,6 +7,7 @@ import "./components/Item.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./components/Home"
 import Carrito from "./components/Carrito"
+import CustomProvider from "./components/CartContext"
 
 function App () {
     const links = [
@@ -18,17 +19,19 @@ function App () {
     
     return (
         <>
-            <BrowserRouter>
-                <header> <Header nombre="Kevin" links={links}/> </header>
-                <Routes>
-                    <Route path="/home" element={<Home/>}/>   
-                    <Route path="/productos" element={<ItemListContainer/>}/>
-                    <Route path="/categoria/:id" element={<ItemListContainer/>}/>
-                    <Route path="/carrito" element={<Carrito/>}/>
-                    <Route path="/producto/:id"  element={<ItemDetailContainer/>}/>
-                </Routes>
-                <Footer/>
-            </BrowserRouter>
+            <CustomProvider>
+                <BrowserRouter>
+                    <header> <Header nombre="Kevin" links={links}/> </header>
+                    <Routes>
+                        <Route path="/home" element={<Home/>}/>   
+                        <Route path="/productos" element={<ItemListContainer/>}/>
+                        <Route path="/categoria/:id" element={<ItemListContainer/>}/>
+                        <Route path="/carrito" element={<Carrito/>}/>
+                        <Route path="/producto/:id"  element={<ItemDetailContainer/>}/>
+                    </Routes>
+                    <Footer/>
+                </BrowserRouter>
+            </CustomProvider>
         </>
         
     )
