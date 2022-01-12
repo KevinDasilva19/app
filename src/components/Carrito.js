@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 const Carrito = () => {
     
-    const { carrito, setCarrito, limpiarCarrito } = useContexto()
+    const { carrito, setCarrito, limpiarCarrito, isInCarrito, borrarCarrito } = useContexto()
     
     console.log(carrito)
 
@@ -17,20 +17,20 @@ const Carrito = () => {
         )
     } else {
         return (
-            <article>
+            <li>
                 <button onClick={limpiarCarrito}>Vaciar Carrito</button>
                 {
                     carrito.map(producto => (
-                        <div id={producto.id} key={producto.id}>
+                        <div id={producto.id} >
                             <h3>{producto.title}</h3>
                             <p>{producto.price}</p>
                             <img src={producto.image} className="imgProduct"/>
                             <p>cantidad:{producto.cantidad}</p>
-                            <button >Eliminar Producto</button>
+                            <button onClick={()=>borrarCarrito(producto.id,producto.cantidad)}>Eliminar Producto</button>
                         </div>
                     ))
                 }
-            </article>
+            </li>
         )
     }
 }
